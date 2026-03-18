@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/vcs.xml
+/misc.xml
+/modules.xml
+/material_theme_project_new.xml
+/inspectionProfiles
+playwright_automation.iml
