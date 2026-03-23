@@ -14,6 +14,7 @@ def prerequisite(scope = "function"):
     return "Done with Prerequisite setup!"
 
 # start with test keyword
+
 def test_first(prerequisite): # fixture name should be passed as argument to run before/after.
     print('hello world')
     assert prerequisite == 'Done with Prerequisite setup!'
