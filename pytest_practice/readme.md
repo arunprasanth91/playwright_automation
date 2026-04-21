@@ -13,7 +13,7 @@
 6. @pytest.mark.skip - to skip a test 
 7. @pytest.mark.smoke/regression - tagging a test method 
    To run tagged test method - pytest -m smoke/regression
-8. 
+8. @pytest.mark.parameterize(list/dict/tuple)  - to parameterize with diff datasets. 
 
 
 
