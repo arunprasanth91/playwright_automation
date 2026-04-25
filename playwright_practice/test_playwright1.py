@@ -1,7 +1,6 @@
 import time
 
 from playwright.sync_api import Playwright, Page, expect
-from pytest_playwright.pytest_playwright import browser
 
 
 def test_playwrightBasics(playwright: Playwright) -> None:
@@ -9,7 +8,7 @@ def test_playwrightBasics(playwright: Playwright) -> None:
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://rahulshettyacademy.com")
-    #browser.close()
+    browser.close()
 
 # chromium, headless mode, 1 single context
 def test_playwright_invoke_shortcut(page: Page):

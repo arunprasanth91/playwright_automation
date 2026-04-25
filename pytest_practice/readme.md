@@ -17,3 +17,26 @@
 
 
 
+Parallelization - Parallelization in Playwright Python is managed via worker processes. 
+By default, the Playwright Pytest plugin does not run tests in parallel. You must explicitly enable it using the pytest-xdist plugin. 
+
+# Run tests using 3 parallel workers
+pytest -n 3
+
+
+Sharding - Sharding is the process of splitting a large test suite into smaller subsets (shards) to run them on different machines simultaneously,
+typically within a CI/CD pipeline. 
+
+# Run only the first part of a suite split into 3 shards
+pytest --shard=1/3
+# Run the second part
+pytest --shard=2/3
+# Run the third part
+pytest --shard=3/3
+
+Key Differences
+Feature 	    Parallelization (Workers)	            Sharding
+Scope	        Single Machine	                        Multiple Machines/Nodes
+Scaling	        Vertical (Uses CPU cores)	            Horizontal (Uses multiple runners)
+Setup	        pytest-xdist plugin	                    Command-line --shard flag
+Primary Use	    Local development & CI efficiency	    Large enterprise-scale test suites
