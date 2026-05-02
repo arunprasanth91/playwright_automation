@@ -13,6 +13,8 @@ Different locators:
 3. page.get_by_placeHolder
 4. page.locator
 5. page.locator().filter()
+6. page.getByText() : Find the element that matches the given text
+7. page.getByTestId(): Find the element that matches the data-testid attribute
 
 when to use page.get_by_label() method to identify web element:
     1. Either input tag should be enclosed by label tag
@@ -45,4 +47,6 @@ Parent sibling = //tag[@attribute=value]/parent-sibling::td
 following sibling = //tag[@attribute=value]/following-sibling::tr
 preceding sibling = //tag[@attribute=value]/preceding-sibling::tr
 
+expect.soft() for soft assertions - If we use the soft assertions do not terminate the execution, but the test will be marked as failed at the end.
 
+expect(a)not.toBe(10) - The .not can be used in Playwright to Negate the assertions

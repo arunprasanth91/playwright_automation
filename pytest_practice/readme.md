@@ -23,6 +23,9 @@ By default, the Playwright Pytest plugin does not run tests in parallel. You mus
 # Run tests using 3 parallel workers
 pytest -n 3
 
+rerun failed test with delay 
+pytest --reruns 5 --reruns-delay 1
+
 
 Sharding - Sharding is the process of splitting a large test suite into smaller subsets (shards) to run them on different machines simultaneously,
 typically within a CI/CD pipeline. 

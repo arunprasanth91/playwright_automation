@@ -1,6 +1,7 @@
 import time
 
-from playwright.sync_api import Playwright, Page, expect
+import pytest
+from playwright.sync_api import Playwright, Page, expect, sync_playwright
 
 
 def test_playwrightBasics(playwright: Playwright) -> None:
@@ -76,6 +77,7 @@ def test_js_alert(page: Page):
     time.sleep(5)
     page.on("dialog", lambda dialog : dialog.accept())
     page.get_by_role("button", name="Confirm").click()
+
     time.sleep(3)
 
 
@@ -103,6 +105,44 @@ def test_mouse_hover(page: Page):
     page.goto("https://rahulshettyacademy.com/AutomationPractice/")
     page.locator("#mousehover").hover()
     page.get_by_role("link", name="Top").click()
+
+
+
+def test_upload_files(page: Page):
+    # Upload a single file
+    page.get_by_label("Upload file").set_input_files('myfile.pdf')
+
+    # Upload multiple files
+    page.get_by_label("Upload files").set_input_files(['file1.txt', 'file2.txt'])
+
+    # Remove all selected files
+    page.get_by_label("Upload file").set_input_files([])
+
+# retry flaky test
+
+@pytest.mark.flaky(reruns=3, reruns_delay=2)
+def test_flaky_element(page):
+    page.goto("https://example.com")
+    # your test logic
+
+
+
+def test_file_download():
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        page.goto("https://example.com")
+
+        # Start waiting for the download event and click the download button
+        with page.expect_download() as download_info:
+            page.get_by_role("button", name="Download").click()
+
+        download = download_info.value
+        # Save the file to a specific location
+        download.save_as(f"./{download.suggested_filename}")
+        browser.close()
+
+
 
 
 

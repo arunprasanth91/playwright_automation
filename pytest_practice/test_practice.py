@@ -1,4 +1,6 @@
 import pytest
+from playwright.sync_api import Page, expect, sync_playwright
+
 
 # file name should start with test.
 
@@ -20,3 +22,18 @@ def test_first(prerequisite): # fixture name should be passed as argument to run
     assert prerequisite == 'Done with Prerequisite setup!'
 
 def test_second(prerequisite1): print('hello world22222')
+
+
+# Define parameters: "search_term" and "expected_title"
+@pytest.mark.parametrize("search_term, expected_title", [
+    ("Playwright", "Playwright"),
+    ("Pytest", "pytest: helps you write better programs"),
+])
+def test_search_and_verify(page: Page, search_term, expected_title):
+    page.goto("https://google.com")
+    # Using get_by_label as recommended in Playwright Best Practices
+    search_input = page.get_by_label("Search", exact=True)
+    search_input.fill(search_term)
+    search_input.press("Enter")
+
+    expect(page).to_have_title(pytest.match(expected_title))
