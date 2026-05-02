@@ -22,7 +22,8 @@ class APIUtils:
                                             data=ordersPayLoad,
                                             headers={"Authorization": token,
                                                      "Content-Type": "application/json"
-                                                     })
+                                                     },
+                                            params={'id':12345})
         response_body = response.json()
         print("Create Order = {}".format(response_body))
         orderId = response_body["orders"][0]

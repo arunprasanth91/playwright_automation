@@ -118,14 +118,6 @@ def test_upload_files(page: Page):
     # Remove all selected files
     page.get_by_label("Upload file").set_input_files([])
 
-# retry flaky test
-
-@pytest.mark.flaky(reruns=3, reruns_delay=2)
-def test_flaky_element(page):
-    page.goto("https://example.com")
-    # your test logic
-
-
 
 def test_file_download():
     with sync_playwright() as p:

@@ -24,6 +24,13 @@ def test_first(prerequisite): # fixture name should be passed as argument to run
 def test_second(prerequisite1): print('hello world22222')
 
 
+# retry flaky test
+@pytest.mark.flaky(reruns=3, reruns_delay=2)
+def test_flaky_element(page):
+    page.goto("https://example.com")
+    # your test logic
+
+
 # Define parameters: "search_term" and "expected_title"
 @pytest.mark.parametrize("search_term, expected_title", [
     ("Playwright", "Playwright"),
