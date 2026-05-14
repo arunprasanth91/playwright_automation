@@ -1,9 +1,15 @@
+Playwright uses single persistent websocket connection to communicate to browser engine 
+
 1. Playwright powerful automation tool for web automation and API automation
-2. Multi language support
-3. Multi Browser and OS compatibility 
-4. Record & Playback facility
-5. Auto waiting mechanism, avoiding manual wait commands
-6. Inbuilt logging and screenshot tools. 
+2. Multi language support & Multi Browser and OS compatibility
+3. Trace Viewer
+4. Browser context
+5. Network interception
+6. Storage state persistence
+7. Native parallelism - natively designed to run tests in parallel across multiple CPU cores.
+8. Record & Playback facility
+9. Auto waiting mechanism, avoiding manual wait commands
+10. Inbuilt logging and screenshot tools. 
 
 pytest --headed = To run in headed mode. 
 
