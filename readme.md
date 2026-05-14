@@ -2,7 +2,7 @@ Playwright uses single persistent websocket connection to communicate to browser
 
 1. Playwright can be used for web automation and API automation
 2. Multi language support & Multi Browser and OS compatibility
-3. Trace Viewer - Inbuilt GUI tool for logging and screenshot
+3. Trace Viewer - Inbuilt GUI tool for logging and screenshot, HTML report
 4. Browser context 
 5. Network interception
 6. Storage state persistence
